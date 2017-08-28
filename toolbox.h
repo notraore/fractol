@@ -16,8 +16,8 @@
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
-# define W 400
-# define H 400
+# define W 1000
+# define H 1000
 # define LEN 2
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
