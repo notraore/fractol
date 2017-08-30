@@ -18,31 +18,25 @@
 
 # define W 1000
 # define H 1000
-# define LEN 2
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
-# define GREEN 0x21610B
+# define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define YELLOW 0xFFFF00
 # define BLACK 0x000000
+# define MAUVE 0xFF00FF
 
-typedef struct		s_mlx
-{
-	int				sl;
-	int				end;
-	int				bpp;
-	int				*dta;
-	void			*mlx;
-	void			*win;
-	void			*img;
-}					t_mlx;
+typedef struct s_var	t_var;
+typedef struct s_mlx	t_mlx;
 
-typedef struct		s_var
+struct				s_var
 {
 	int				i;
 	int				x;
 	int				y;
 	int				it_max;
+	int				pres;
+	double			z;
 	double			tmp;
 	double			x1;
 	double			x2;
@@ -54,9 +48,25 @@ typedef struct		s_var
 	double			c_i;
 	double			z_r;
 	double			z_i;
-}					t_var;
+	t_mlx			*tl;
+};
 
-int					pressed_key(int keycode);
+struct				s_mlx
+{
+	int				sl;
+	int				end;
+	int				bpp;
+	int				*dta;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	t_var			e;
+};
+
+int					pressed_key(int keycode, t_var *e);
 void				ft_print_err(int argc);
+void				ft_draw(t_mlx *tl, t_var *e);
+int					mouse_position(int x, int y, t_var *e);
+int					mouse_key(int keycde, int x, int y, t_var *e);
 
 #endif

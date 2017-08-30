@@ -12,9 +12,62 @@
 
 #include "../toolbox.h"
 
-int		pressed_key(int keycode)
+void	clear_and_reput(t_var *env)
+{
+	ft_draw(env->tl, env);
+	mlx_put_image_to_window(env->tl->mlx, env->tl->win, env->tl->img, 0, 0);
+}
+
+int		pressed_key(int keycode, t_var *e)
 {
 	if (keycode == 53)
 		exit(EXIT_SUCCESS);
+	if (keycode == 69)
+	{
+		e->z += 2;
+		e->z += 2;
+		// e->pres += 1;
+		ft_draw(e->tl, e);
+		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	}
+	if (keycode == 78)
+	{
+		e->z -= 2;
+		e->z -= 2;
+		// e->pres -= 1;
+		ft_draw(e->tl, e);
+		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	}
+	// printf("key number : %d\n", keycode);
+	return (0);
+}
+
+int		mouse_position(int x, int y, t_var *e)
+{
+	// (void)e;
+	if ((x > 0 && x < W) && (y > 0 && y < H))
+	{
+		e->x1 = x / W;
+		e->y1 = y / H;
+		ft_draw(e->tl, e);
+		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	}
+		// printf("mouse position x : %d, y : %d\n", x, y);
+	return (0);
+}
+
+int		mouse_key(int keycode, int x, int y, t_var *e)
+{
+	(void)x;
+	(void)y;
+	(void)e;
+	// (void)keycode;
+	// printf("keycode = %d\n", keycode);
+	if (keycode == 4)
+		e->z += 1;
+	if (keycode == 5)
+		e->z -= 1;
+	ft_draw(e->tl, e);
+	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
 }
