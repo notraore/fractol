@@ -66,12 +66,12 @@ int		mouse_position(int x, int y, t_var *e)
 
 int		mouse_key(int keycode, int x, int y, t_var *e)
 {
-	// (void)x;
-	// (void)y;
+	(void)x;
+	(void)y;
 	// (void)e;
 	printf("keycode == %d\n", keycode);
 	if (keycode == 1)
-		mouse_zoom(keycode, x, y, e);
+		e->z += 1;
 	if (keycode == 2)
 		e->z -= 1;
 	ft_draw(e->tl, e);
