@@ -77,6 +77,7 @@ int			main(int argc, char **argv)
 	mlx_put_image_to_window(min.mlx, min.win, min.img, 0, 0);
 	mlx_string_put(min.mlx, min.win, 15, 15, WHITE, argv[1]);
 	mlx_mouse_hook(min.win, &mouse_key, &e);
+	// mlx_mouse_hook(min.win, &mouse_zoom, &e);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);
 	mlx_loop(min.mlx);

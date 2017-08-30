@@ -16,8 +16,8 @@
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
-# define W 1000
-# define H 1000
+# define W 500
+# define H 500
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
 # define GREEN 0x00FF00
@@ -67,5 +67,6 @@ void				ft_print_err(int argc);
 void				ft_draw(t_mlx *tl, t_var *e);
 int					mouse_position(int x, int y, t_var *e);
 int					mouse_key(int keycde, int x, int y, t_var *e);
+int					mouse_zoom(int keycode, int x, int y, t_var *e);
 
 #endif
