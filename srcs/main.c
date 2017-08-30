@@ -20,9 +20,8 @@ void		draw_var_init(t_var *e)
 	e->x2 = 0.6;
 	e->y1 = -1.2;
 	e->y2 = 1.2;
-	e->it_max = 50 + e->pres;
+	e->it_max = 50;
 	e->zoom_x = W / (e->x2 - e->x1) + e->z;
-	// printf("e->zoom_x == %f\n", e->zoom_x);
 	e->zoom_y = H / (e->y2 - e->y1) + e->z;
 }
 

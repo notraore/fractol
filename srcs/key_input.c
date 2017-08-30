@@ -26,7 +26,6 @@ int		pressed_key(int keycode, t_var *e)
 	{
 		e->z += 2;
 		e->z += 2;
-		// e->pres += 1;
 		ft_draw(e->tl, e);
 		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
@@ -34,17 +33,20 @@ int		pressed_key(int keycode, t_var *e)
 	{
 		e->z -= 2;
 		e->z -= 2;
-		// e->pres -= 1;
 		ft_draw(e->tl, e);
 		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
-	// printf("key number : %d\n", keycode);
+	return (0);
+}
+
+int		mouse_zoom()
+{
+	= (W / 2 - x) / W / 2;
 	return (0);
 }
 
 int		mouse_position(int x, int y, t_var *e)
 {
-	// (void)e;
 	if ((x > 0 && x < W) && (y > 0 && y < H))
 	{
 		e->x1 = x / W;
@@ -52,7 +54,6 @@ int		mouse_position(int x, int y, t_var *e)
 		ft_draw(e->tl, e);
 		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
-		// printf("mouse position x : %d, y : %d\n", x, y);
 	return (0);
 }
 
@@ -61,8 +62,6 @@ int		mouse_key(int keycode, int x, int y, t_var *e)
 	(void)x;
 	(void)y;
 	(void)e;
-	// (void)keycode;
-	// printf("keycode = %d\n", keycode);
 	if (keycode == 4)
 		e->z += 1;
 	if (keycode == 5)

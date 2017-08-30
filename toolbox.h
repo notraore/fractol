@@ -35,7 +35,6 @@ struct				s_var
 	int				x;
 	int				y;
 	int				it_max;
-	int				pres;
 	double			z;
 	double			tmp;
 	double			x1;
