@@ -14,7 +14,7 @@
 
 void	clear_and_reput(t_var *env)
 {
-	ft_draw(env->tl, env);
+	man_ft_draw(env->tl, env);
 	mlx_put_image_to_window(env->tl->mlx, env->tl->win, env->tl->img, 0, 0);
 }
 
@@ -24,33 +24,17 @@ int		pressed_key(int keycode, t_var *e)
 		exit(EXIT_SUCCESS);
 	if (keycode == 69)
 	{
-		// e->z += 2;
-		// e->z += 2;
-		ft_draw(e->tl, e);
-		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+		e->mouse_x += 0.05;
+		e->mouse_y += 0.05;
 	}
 	if (keycode == 78)
 	{
-		// e->z -= 2;
-		// e->z -= 2;
-		ft_draw(e->tl, e);
-		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+		e->mouse_x -= 0.05;
+		e->mouse_y -= 0.05;
 	}
+	man_ft_draw(e->tl, e);
+	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	printf("keycode == %d\n", keycode);
-	return (0);
-}
-
-int		mouse_zoom(int keycode, int x, int y, t_var *e)
-{
-	// (void)x;
-	// (void)y;
-	// (void)e;
-	(void)keycode;
-	// if (keycode == 4 || keycode == 5)
-	// {
-		e->x1 = x / (W / 2 - x) + W / 2;
-		e->y1 = y / (W / 2 - y) + W / 2;
-	// }
 	return (0);
 }
 
@@ -59,7 +43,14 @@ int		mouse_position(int x, int y, t_var *e)
 	(void)e;
 	if ((x > 0 && x < W) && (y > 0 && y < H))
 	{
-		printf("x = %f || y = %f && moludo_x = %f, modulo_y = %f\n", (double)x / W, (double)y / H, (double)x % (double)W, y % H );
+		e->mouse_x = (double)x / W;
+		e->mouse_y = (double)y / H * 2;
+		e->mod_x = 1 - (double)x / W;
+		e->mod_y = 1 - (double)y / H * 2;
+		printf("x = %f || y = %f || moludo_x = %f || modulo_y = %f\n", (double)x / W,
+		(double)y / H, 1 - (double)x / W, 1 - (double)y / H );
+		man_ft_draw(e->tl, e);
+		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
 	return (0);
 }
@@ -71,10 +62,10 @@ int		mouse_key(int keycode, int x, int y, t_var *e)
 	// (void)e;
 	printf("keycode == %d\n", keycode);
 	// if (keycode == 1 || keycode == 4)
-		// e->z += 1;
+	// 	e->z += 1;
 	// if (keycode == 2 || keycode == 5)
-		// e->mouse_x -= 1;
-	ft_draw(e->tl, e);
+	// 	e->mouse_x -= 1;
+	man_ft_draw(e->tl, e);
 	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
 }
