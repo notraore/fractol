@@ -16,8 +16,8 @@
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
-# define W 500
-# define H 500
+# define W 1000
+# define H 1000
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
 # define GREEN 0x00FF00
@@ -35,7 +35,8 @@ struct				s_var
 	int				x;
 	int				y;
 	int				it_max;
-	double			z;
+	double			mouse_x;
+	double			mouse_y;
 	double			tmp;
 	double			x1;
 	double			x2;

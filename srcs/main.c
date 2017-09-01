@@ -16,13 +16,13 @@ void		draw_var_init(t_var *e)
 {
 	e->x = 0;
 	e->y = 0;
-	e->x1 = -2.1;
-	e->x2 = 0.6;
-	e->y1 = -1.2;
-	e->y2 = 1.2;
+	e->x1 = -2.1 + e->mouse_x;
+	e->x2 = 0.6 + e->mouse_x;
+	e->y1 = -1.2 + e->mouse_y;
+	e->y2 = 1.2 + e->mouse_y;
 	e->it_max = 50;
-	e->zoom_x = W / (e->x2 - e->x1) + e->z;
-	e->zoom_y = H / (e->y2 - e->y1) + e->z;
+	e->zoom_x = W / (e->x2 - e->x1);
+	e->zoom_y = H / (e->y2 - e->y1);
 }
 
 void		var_reset(t_var *e)
@@ -50,10 +50,11 @@ void		ft_draw(t_mlx *min, t_var *e)
 				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 				e->i = e->i + 1;
 			}
-			if (e->i == e->it_max)
+			if ((e->i == e->it_max) && (e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
 				min->dta[e->x + e->y * H] = BLACK;
 			else
-				min->dta[e->x + e->y * H] = e->i * BLUE / e->it_max + 1;
+				if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
+					min->dta[e->x + e->y * H] = e->i * BLUE / e->it_max + 1;
 			e->y += 1;
 		}
 		e->x += 1;

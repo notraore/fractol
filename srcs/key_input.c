@@ -24,15 +24,15 @@ int		pressed_key(int keycode, t_var *e)
 		exit(EXIT_SUCCESS);
 	if (keycode == 69)
 	{
-		e->z += 2;
-		e->z += 2;
+		// e->z += 2;
+		// e->z += 2;
 		ft_draw(e->tl, e);
 		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
 	if (keycode == 78)
 	{
-		e->z -= 2;
-		e->z -= 2;
+		// e->z -= 2;
+		// e->z -= 2;
 		ft_draw(e->tl, e);
 		mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	}
@@ -59,7 +59,7 @@ int		mouse_position(int x, int y, t_var *e)
 	(void)e;
 	if ((x > 0 && x < W) && (y > 0 && y < H))
 	{
-		printf("x = %d || y = %d\n", x, y);
+		printf("x = %f || y = %f && moludo_x = %f, modulo_y = %f\n", (double)x / W, (double)y / H, (double)x % (double)W, y % H );
 	}
 	return (0);
 }
@@ -70,10 +70,10 @@ int		mouse_key(int keycode, int x, int y, t_var *e)
 	(void)y;
 	// (void)e;
 	printf("keycode == %d\n", keycode);
-	if (keycode == 1)
-		e->z += 1;
-	if (keycode == 2)
-		e->z -= 1;
+	// if (keycode == 1 || keycode == 4)
+		// e->z += 1;
+	// if (keycode == 2 || keycode == 5)
+		// e->mouse_x -= 1;
 	ft_draw(e->tl, e);
 	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
