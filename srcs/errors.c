@@ -23,11 +23,16 @@ void	ft_help(void)
 	ft_putendl("-> Otherwise, press \"random\" to display a random fractale.");
 	write(1, "\n", 1);
 	ft_putendl("\t\t\t**INPUT**");
-	ft_putendl("-Press 'q' and 'e' to add and substract relief.");
 	ft_putendl("-Press '+' and '-' to zoom in and out.");
 	ft_putendl("-Press directional arrows to move the image.");
 	ft_putendl("-Press 'esc' to exit the program.");
 	exit(EXIT_SUCCESS);
+}
+
+void	check_valid_input(char *argv)
+{
+	if ((ft_strcmp(argv, "mandelbrot") != 0))
+		ft_help();
 }
 
 void	ft_print_err(int argc)

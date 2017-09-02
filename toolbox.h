@@ -36,7 +36,7 @@ struct				s_var
 	int				i;
 	int				x;
 	int				y;
-	double				it_max;
+	double			it_max;
 	double			diff_x;
 	double			diff_y;
 	double			new_1;
@@ -72,12 +72,28 @@ struct				s_mlx
 	t_var			e;
 };
 
+/*
+**key_input.c
+*/
 int					pressed_key(int keycode, t_var *e);
-void				ft_print_err(int argc);
-void				man_ft_draw(t_mlx *tl, t_var *e);
-void				m_draw_var_init(t_var *e);
 int					mouse_position(int x, int y, t_var *e);
-int					mouse_key(int keycde, int x, int y, t_var *e);
-int					mouse_zoom(int keycode, int x, int y, t_var *e);
+
+/*
+**all_init
+*/
+void				m_draw_var_init(t_var *e);
+void				m_var_reset(t_var *e);
+void				m_first_init(t_var *e);
+/*
+**main.c
+*/
+void				man_ft_draw(t_mlx *tl, t_var *e);
+
+/*
+**error.c
+*/
+void				ft_help(void);
+void				check_valid_input(char *argv);
+void				ft_print_err(int argc);
 
 #endif

@@ -6,14 +6,14 @@
 #    By: notraore <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/22 16:56:22 by lramirez          #+#    #+#              #
-#    Updated: 2017/06/12 16:10:14 by notraore         ###   ########.fr        #
+#    Updated: 2017/09/02 19:32:56 by notraore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fractol
 CC=gcc
-SRC=srcs/main.c srcs/key_input.c srcs/errors.c
-OBJ=main.o key_input.o errors.o
+SRC=srcs/main.c srcs/key_input.c srcs/errors.c srcs/all_init.c
+OBJ=main.o key_input.o errors.o all_init.o
 FLAGS=-Wall -Wextra -Werror
 LIB=./libft/libft.a
 MLX=-L ./miniLibx -l mlx -framework OpenGL -framework AppKit
