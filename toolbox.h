@@ -13,6 +13,7 @@
 #ifndef __TOOLBOX_H
 # define __TOOLBOX_H
 
+# include <pthread.h>
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
@@ -35,7 +36,11 @@ struct				s_var
 	int				i;
 	int				x;
 	int				y;
-	int				it_max;
+	double				it_max;
+	double			diff_x;
+	double			diff_y;
+	double			new_1;
+	double			new_2;
 	double			z;
 	double			mouse_x;
 	double			mouse_y;
@@ -70,6 +75,7 @@ struct				s_mlx
 int					pressed_key(int keycode, t_var *e);
 void				ft_print_err(int argc);
 void				man_ft_draw(t_mlx *tl, t_var *e);
+void				m_draw_var_init(t_var *e);
 int					mouse_position(int x, int y, t_var *e);
 int					mouse_key(int keycde, int x, int y, t_var *e);
 int					mouse_zoom(int keycode, int x, int y, t_var *e);
