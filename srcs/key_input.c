@@ -74,6 +74,7 @@ int			mouse_position(int x, int y, t_var *e)
 		e->mod_x = (double)x / W;
 		e->mod_y = (double)y / H;
 	}
+	//Modifier les parametre avec mouse_x et mouse_y sur la fractae julia
 	// man_ft_draw(e->tl, e);
 	// mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
