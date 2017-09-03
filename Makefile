@@ -12,8 +12,8 @@
 
 NAME=fractol
 CC=gcc
-SRC=srcs/main.c srcs/key_input.c srcs/errors.c srcs/all_init.c
-OBJ=main.o key_input.o errors.o all_init.o
+SRC=srcs/main.c srcs/key_input.c srcs/errors.c srcs/man_init.c srcs/jul_init.c
+OBJ=main.o key_input.o errors.o man_init.o jul_init.o
 FLAGS=-Wall -Wextra -Werror
 LIB=./libft/libft.a
 MLX=-L ./miniLibx -l mlx -framework OpenGL -framework AppKit

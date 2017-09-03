@@ -36,6 +36,7 @@ struct				s_var
 	int				i;
 	int				x;
 	int				y;
+	char			*argv;
 	double			it_max;
 	double			diff_x;
 	double			diff_y;
@@ -51,6 +52,7 @@ struct				s_var
 	double			y2;
 	double			zoom_x;
 	double			zoom_y;
+	double			zoom;
 	double			c_r;
 	double			c_i;
 	double			z_r;
@@ -79,15 +81,24 @@ int					pressed_key(int keycode, t_var *e);
 int					mouse_position(int x, int y, t_var *e);
 
 /*
-**all_init
+**man_init
 */
 void				m_draw_var_init(t_var *e);
 void				m_var_reset(t_var *e);
 void				m_first_init(t_var *e);
+
+/*
+**jul_init
+*/
+void				j_draw_var_init(t_var *e);
+void				j_var_reset(t_var *e);
+void				j_first_init(t_var *e);
+
 /*
 **main.c
 */
 void				man_ft_draw(t_mlx *tl, t_var *e);
+void				jul_ft_draw(t_mlx *tl, t_var *e);
 
 /*
 **error.c

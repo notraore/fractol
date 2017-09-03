@@ -16,24 +16,24 @@ void		get_mouse_position_in(t_var *e)
 {
 	e->diff_y = (e->y2 - e->y1) * 0.1;
 	e->diff_x = (e->x2 - e->x1) * 0.1;
-	e->y1 = (e->y1 + e->diff_y * e->mod_y);
-	e->y2 = (e->y2 - e->diff_y * (1 - e->mod_y));
-	e->x1 = (e->x1 + e->diff_x * e->mod_x);
-	e->x2 = (e->x2 - e->diff_x * (1 - e->mod_x));
+	e->y1 = (e->y1 + e->diff_y * e->mouse_y);
+	e->y2 = (e->y2 - e->diff_y * (1 - e->mouse_y));
+	e->x1 = (e->x1 + e->diff_x * e->mouse_x);
+	e->x2 = (e->x2 - e->diff_x * (1 - e->mouse_x));
 	e->z += 5;
-	e->it_max += 0.5;
+	e->it_max += 1;
 }
 
 void		get_mouse_position_out(t_var *e)
 {
 	e->diff_y = (e->y2 - e->y1) * 0.1;
 	e->diff_x = (e->x2 - e->x1) * 0.1;
-	e->y1 = (e->y1 - e->diff_y * e->mod_y);
-	e->y2 = (e->y2 + e->diff_y * (1 - e->mod_y));
-	e->x1 = (e->x1 - e->diff_x * e->mod_x);
-	e->x2 = (e->x2 + e->diff_x * (1 - e->mod_x));
+	e->y1 = (e->y1 - e->diff_y * e->mouse_y);
+	e->y2 = (e->y2 + e->diff_y * (1 - e->mouse_y));
+	e->x1 = (e->x1 - e->diff_x * e->mouse_x);
+	e->x2 = (e->x2 + e->diff_x * (1 - e->mouse_x));
 	e->z -= 5;
-	e->it_max -= 0.5;
+	e->it_max -= 1;
 }
 
 void		reset_all(t_var *e)
@@ -44,6 +44,14 @@ void		reset_all(t_var *e)
 	e->x2 = 0.6;
 	e->it_max = 50;
 	e->z = 0;
+}
+
+void		the_one(t_var *e)
+{
+	if (ft_strcmp("maldelbrot", e->argv) == 0)
+		man_ft_draw(e->tl, e);
+	if (ft_strcmp("julia", e->argv) == 0)
+		jul_ft_draw(e->tl, e);
 }
 
 int			pressed_key(int keycode, t_var *e)
@@ -60,7 +68,8 @@ int			pressed_key(int keycode, t_var *e)
 		e->it_max += 1;
 	if (keycode == 1)
 		e->it_max -= 1;
-	man_ft_draw(e->tl, e);
+	// the_one(e->argv);
+	jul_ft_draw(e->tl, e);
 	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
 }
@@ -74,8 +83,7 @@ int			mouse_position(int x, int y, t_var *e)
 		e->mod_x = (double)x / W;
 		e->mod_y = (double)y / H;
 	}
-	//Modifier les parametre avec mouse_x et mouse_y sur la fractae julia
-	// man_ft_draw(e->tl, e);
-	// mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	jul_ft_draw(e->tl, e);
+	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 	return (0);
 }

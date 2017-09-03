@@ -20,8 +20,7 @@ void	ft_help(void)
 	ft_putendl("-> \"Mandelbrot\"");
 	ft_putendl("-> \"Nobila\"");
 	ft_putendl("-> Press \"all\" to display all available fractals.");
-	ft_putendl("-> Otherwise, press \"random\" to display a random fractale.");
-	write(1, "\n", 1);
+	ft_putchar('\n');
 	ft_putendl("\t\t\t**INPUT**");
 	ft_putendl("-Press '+' and '-' to zoom in and out.");
 	ft_putendl("-Press directional arrows to move the image.");

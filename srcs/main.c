@@ -30,7 +30,34 @@ void		man_ft_draw(t_mlx *min, t_var *e)
 			}
 			if ((e->i == e->it_max) && (e->x > 0 && e->x < W) &&
 			(e->y > 0 && e->y < H))
-				min->dta[e->x + e->y * H] = GAY;
+				min->dta[e->x + e->y * H] = MAUVE;
+			else if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
+				min->dta[e->x + e->y * H] = e->i * GAY / e->it_max + 1;
+			e->y += 1;
+		}
+		e->x += 1;
+	}
+}
+
+void		jul_ft_draw(t_mlx *min, t_var *e)
+{
+	j_draw_var_init(e);
+	while (e->x < W)
+	{
+		e->y = 0;
+		while (e->y < H)
+		{
+			j_var_reset(e);
+			while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->it_max)
+			{
+				e->tmp = e->z_r;
+				e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
+				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
+				e->i = e->i + 1;
+			}
+			if ((e->i == e->it_max) && (e->x > 0 && e->x < W) &&
+			(e->y > 0 && e->y < H))
+				min->dta[e->x + e->y * H] = BLUE;
 			else if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
 				min->dta[e->x + e->y * H] = e->i * GAY / e->it_max + 1;
 			e->y += 1;
@@ -51,11 +78,13 @@ int			main(int argc, char **argv)
 	min.img = mlx_new_image(min.mlx, W, H);
 	min.dta = (int *)mlx_get_data_addr(min.img,
 	&min.bpp, &min.sl, &min.end);
-	m_first_init(&e);
-	man_ft_draw(&min, &e);
+	j_first_init(&e);
+	jul_ft_draw(&min, &e);
 	mlx_put_image_to_window(min.mlx, min.win, min.img, 0, 0);
 	mlx_string_put(min.mlx, min.win, 15, 15, WHITE, argv[1]);
 	e.tl = &min;
+	e.argv = argv[1];
+	printf("%s\n", e.argv);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);
 	mlx_loop(min.mlx);
