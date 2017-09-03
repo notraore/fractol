@@ -32,7 +32,7 @@ void		man_ft_draw(t_mlx *min, t_var *e)
 			(e->y > 0 && e->y < H))
 				min->dta[e->x + e->y * H] = MAUVE;
 			else if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
-				min->dta[e->x + e->y * H] = e->i * GAY / e->it_max + 1;
+				min->dta[e->x + e->y * H] = e->i * GAY / (e->clr + e->it_max) + 1;
 			e->y += 1;
 		}
 		e->x += 1;
@@ -59,7 +59,7 @@ void		jul_ft_draw(t_mlx *min, t_var *e)
 			(e->y > 0 && e->y < H))
 				min->dta[e->x + e->y * H] = BLUE;
 			else if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
-				min->dta[e->x + e->y * H] = e->i * GAY / e->it_max + 1;
+				min->dta[e->x + e->y * H] = e->i * GAY / (e->clr + e->it_max) + 1;
 			e->y += 1;
 		}
 		e->x += 1;
@@ -68,7 +68,7 @@ void		jul_ft_draw(t_mlx *min, t_var *e)
 
 void		display_frarg(t_mlx *min, t_var *e, char *argv)
 {
-	if (ft_strcmp("maldelbrot", argv) == 0)
+	if (ft_strcmp("mandelbrot", argv) == 0)
 	{
 		m_first_init(e);
 		man_ft_draw(min, e);
@@ -100,6 +100,7 @@ int			main(int argc, char **argv)
 	printf("%s\n", e.argv);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);
+	// mlx_mouse_hook(min.win, &mouse_key, &e);
 	mlx_loop(min.mlx);
 	return (0);
 }

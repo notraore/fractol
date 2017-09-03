@@ -14,8 +14,8 @@
 
 void		m_draw_var_init(t_var *e)
 {
-	e->x = 0;
-	e->y = 0;
+	e->x = 0; //deplacement ? + e->mov_x;
+	e->y = 0; //deplacement ? + e->mov_y;
 	e->zoom_x = W / (e->x2 - e->x1) + e->z + e->mod_x;
 	e->zoom_y = H / (e->y2 - e->y1) + e->z + e->mod_y;
 }

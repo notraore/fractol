@@ -36,7 +36,11 @@ struct				s_var
 	int				i;
 	int				x;
 	int				y;
+	int				mov_flag;
 	char			*argv;
+	double			mov_x;
+	double			mov_y;
+	double			clr;
 	double			it_max;
 	double			diff_x;
 	double			diff_y;
@@ -79,6 +83,7 @@ struct				s_mlx
 */
 int					pressed_key(int keycode, t_var *e);
 int					mouse_position(int x, int y, t_var *e);
+int					mouse_key(int keycode, t_var *e);
 
 /*
 **man_init
