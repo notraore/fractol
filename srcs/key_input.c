@@ -36,22 +36,21 @@ void		get_mouse_position_out(t_var *e)
 	e->it_max -= 1;
 }
 
-void		reset_all(t_var *e)
+void		reset_the_one(t_var *e)
 {
-	e->y1 = -1.2;
-	e->y2 = 1.2;
-	e->x1 = -2.1;
-	e->x2 = 0.6;
-	e->it_max = 50;
 	e->z = 0;
+	if (ft_strcmp("maldelbrot", e->argv) == 0)
+		m_first_init(e);
+	if (ft_strcmp("julia", e->argv) == 0)
+		j_first_init(e);
 }
-
 void		the_one(t_var *e)
 {
 	if (ft_strcmp("maldelbrot", e->argv) == 0)
 		man_ft_draw(e->tl, e);
 	if (ft_strcmp("julia", e->argv) == 0)
 		jul_ft_draw(e->tl, e);
+	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
 }
 
 int			pressed_key(int keycode, t_var *e)
@@ -63,14 +62,12 @@ int			pressed_key(int keycode, t_var *e)
 	if (keycode == 78)
 		get_mouse_position_out(e);
 	if (keycode == 15)
-		reset_all(e);
+		reset_the_one(e);
 	if (keycode == 15)
 		e->it_max += 1;
 	if (keycode == 1)
 		e->it_max -= 1;
-	// the_one(e->argv);
-	jul_ft_draw(e->tl, e);
-	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	the_one(e);
 	return (0);
 }
 
@@ -83,7 +80,7 @@ int			mouse_position(int x, int y, t_var *e)
 		e->mod_x = (double)x / W;
 		e->mod_y = (double)y / H;
 	}
-	jul_ft_draw(e->tl, e);
-	mlx_put_image_to_window(e->tl->mlx, e->tl->win, e->tl->img, 0, 0);
+	if (ft_strcmp("julia", e->argv) == 0)
+		the_one(e);
 	return (0);
 }

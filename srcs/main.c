@@ -66,6 +66,20 @@ void		jul_ft_draw(t_mlx *min, t_var *e)
 	}
 }
 
+void		display_frarg(t_mlx *min, t_var *e, char *argv)
+{
+	if (ft_strcmp("maldelbrot", argv) == 0)
+	{
+		m_first_init(e);
+		man_ft_draw(min, e);
+	}
+	if (ft_strcmp("julia", argv) == 0)
+	{
+		j_first_init(e);
+		jul_ft_draw(min, e);
+	}
+}
+
 int			main(int argc, char **argv)
 {
 	t_mlx		min;
@@ -78,8 +92,7 @@ int			main(int argc, char **argv)
 	min.img = mlx_new_image(min.mlx, W, H);
 	min.dta = (int *)mlx_get_data_addr(min.img,
 	&min.bpp, &min.sl, &min.end);
-	j_first_init(&e);
-	jul_ft_draw(&min, &e);
+	display_frarg(&min, &e, argv[1]);
 	mlx_put_image_to_window(min.mlx, min.win, min.img, 0, 0);
 	mlx_string_put(min.mlx, min.win, 15, 15, WHITE, argv[1]);
 	e.tl = &min;
