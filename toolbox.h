@@ -38,6 +38,8 @@ struct				s_var
 	int				y;
 	int				mov_flag;
 	char			*argv;
+	int				image_x;
+	int				image_y;
 	double			mov_x;
 	double			mov_y;
 	double			clr;
@@ -56,7 +58,6 @@ struct				s_var
 	double			y2;
 	double			zoom_x;
 	double			zoom_y;
-	double			zoom;
 	double			c_r;
 	double			c_i;
 	double			z_r;
@@ -83,7 +84,7 @@ struct				s_mlx
 */
 int					pressed_key(int keycode, t_var *e);
 int					mouse_position(int x, int y, t_var *e);
-int					mouse_key(int keycode, t_var *e);
+int					mouse_key(int keycode, int x, int y, t_var *e);
 
 /*
 **man_init
@@ -100,6 +101,12 @@ void				j_var_reset(t_var *e);
 void				j_first_init(t_var *e);
 
 /*
+**nob_init
+*/
+void				n_draw_var_init(t_var *e);
+void				n_var_reset(t_var *e);
+void				n_first_init(t_var *e);
+/*
 **main.c
 */
 void				man_ft_draw(t_mlx *tl, t_var *e);
@@ -109,7 +116,15 @@ void				jul_ft_draw(t_mlx *tl, t_var *e);
 **error.c
 */
 void				ft_help(void);
-void				check_valid_input(char *argv);
 void				ft_print_err(int argc);
+int					check_argv(char *argv);
+
+/*
+**fractals.c
+*/
+void				man_ft_draw(t_mlx *min, t_var *e);
+void				jul_ft_draw(t_mlx *min, t_var *e);
+void				nob_ft_draw(t_mlx *min, t_var *e);
+
 
 #endif
