@@ -13,8 +13,9 @@
 NAME=fractol
 CC=gcc
 SRC=srcs/main.c srcs/key_input.c srcs/errors.c srcs/man_init.c srcs/jul_init.c\
-srcs/fractals.c srcs/nob_init.c
-OBJ=main.o key_input.o errors.o man_init.o jul_init.o fractals.o nob_init.o
+srcs/fractals.c srcs/nob_init.c srcs/mouse_reset.c
+OBJ=main.o key_input.o errors.o man_init.o jul_init.o fractals.o nob_init.o\
+mouse_reset.o
 FLAGS=-Wall -Wextra -Werror
 LIB=./libft/libft.a
 MLX=-L ./miniLibx -l mlx -framework OpenGL -framework AppKit

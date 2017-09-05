@@ -12,12 +12,6 @@
 
 #include "../toolbox.h"
 
-// void		win_size(t_var *e)
-// {
-// 	e->image_x = 1000;
-// 	e->image_y = 1000;
-// }
-
 void		init_fract(t_var *e, char *argv)
 {
 	if (ft_strcmp("mandelbrot", argv) == 0)
@@ -47,7 +41,6 @@ int			main(int argc, char **argv)
 		ft_print_err(argc);
 	if (check_argv(argv[1]) == 0)
 		ft_help();
-	// win_size(&e);
 	init_fract(&e, argv[1]);
 	min.mlx = mlx_init();
 	min.win = mlx_new_window(min.mlx, W, H, "fractol");

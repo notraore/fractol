@@ -38,5 +38,5 @@ void		j_first_init(t_var *e)
 	e->y2 = 1.2;
 	e->x1 = -1;
 	e->x2 = 1;
-	e->it_max = 150;
+	e->imax = 150;
 }

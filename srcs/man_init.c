@@ -35,5 +35,5 @@ void		m_first_init(t_var *e)
 	e->y2 = 1.2;
 	e->x1 = -2.1;
 	e->x2 = 0.6;
-	e->it_max = 50;
+	e->imax = 50;
 }

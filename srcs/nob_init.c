@@ -24,11 +24,11 @@ void		n_var_reset(t_var *e)
 {
 	if (e->mov_flag == 0)
 	{
-		e->c_r = e->x / + e->zoom_x + e->mouse_y;
-		e->c_i = e->y / + e->zoom_y + e->mouse_x;
+		e->c_r = e->x / e->zoom_x + e->mouse_y;
+		e->c_i = e->y / e->zoom_y + e->mouse_x;
 	}
-	e->z_r = .2;
-	e->z_i = 0.2;
+	e->z_r = 0.02;
+	e->z_i = 0.695;
 	e->i = 0;
 }
 
@@ -38,5 +38,5 @@ void		n_first_init(t_var *e)
 	e->y2 = 1.2;
 	e->x1 = -1;
 	e->x2 = 1;
-	e->it_max = 50;
+	e->imax = 50;
 }

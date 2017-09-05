@@ -37,7 +37,7 @@ void	ft_print_err(int argc)
 	ft_help();
 }
 
-int			check_argv(char *argv)
+int		check_argv(char *argv)
 {
 	if (ft_strcmp("mandelbrot", argv) == 0)
 		return (1);
