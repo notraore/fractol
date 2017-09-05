@@ -36,34 +36,32 @@ struct					s_var
 	int					i;
 	int					x;
 	int					y;
-	int					mov_flag;
-	char				*argv;
 	int					image_x;
 	int					image_y;
-	double				mov_x;
-	double				mov_y;
-	double				clr;
-	double				imax;
-	double				diff_x;
-	double				diff_y;
-	double				new_1;
-	double				new_2;
+	int					mov_flag;
+	char				*argv;
 	double				z;
-	double				mouse_x;
-	double				mouse_y;
-	double				tmp;
 	double				x1;
 	double				x2;
 	double				y1;
 	double				y2;
-	double				zoom_x;
-	double				zoom_y;
+	double				clr;
 	double				c_r;
 	double				c_i;
 	double				z_r;
 	double				z_i;
+	double				tmp;
+	double				imax;
 	double				mod_x;
 	double				mod_y;
+	double				mov_x;
+	double				mov_y;
+	double				zoom_x;
+	double				zoom_y;
+	double				diff_x;
+	double				diff_y;
+	double				mouse_x;
+	double				mouse_y;
 	t_mlx				*tl;
 };
 
@@ -118,6 +116,7 @@ void					jul_ft_draw(t_mlx *tl, t_var *e);
 void					ft_help(void);
 void					ft_print_err(int argc);
 int						check_argv(char *argv);
+void					show_input(void);
 
 /*
 **fractals.c

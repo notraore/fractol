@@ -20,11 +20,6 @@ void	ft_help(void)
 	ft_putendl("-> \"mandelbrot\"");
 	ft_putendl("-> \"nobila\"");
 	ft_putendl("-> Press \"all\" to display all available fractals.");
-	ft_putchar('\n');
-	ft_putendl("\t\t\t**INPUT**");
-	ft_putendl("-Press '+' and '-' to zoom in and out.");
-	ft_putendl("-Press directional arrows to move the image.");
-	ft_putendl("-Press 'esc' to exit the program.");
 	exit(EXIT_FAILURE);
 }
 
@@ -45,6 +40,19 @@ int		check_argv(char *argv)
 		return (1);
 	else if (ft_strcmp("nobila", argv) == 0)
 		return (1);
-	ft_putendl("\t\t\tUnknown fractal.");
+	ft_putendl("\t\t\tBad typography or unknown fractal.");
 	return (0);
+}
+
+void	show_input(void)
+{
+	ft_putendl("\t\t\t**INPUT**");
+	ft_putendl("-Press mouse roll pad to zoom in and out.");
+	ft_putendl("-Press directional arrows to move the image.");
+	ft_putendl("-Press 'w' to increase iteration and 's' to decrease.");
+	ft_putendl("-Press 't' or 'g' to change colors.");
+	ft_putendl("-Press 'r' to reset fractal position");
+	ft_putstr("\tIf you're using julia fractal, press the space bar to ");
+	ft_putendl("disable/enable mouse motion.");
+	ft_putendl("-Press 'esc' to exit the program.");
 }

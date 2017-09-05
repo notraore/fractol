@@ -37,6 +37,8 @@ int			main(int argc, char **argv)
 	t_mlx		min;
 	t_var		e;
 
+	e.tl = &min;
+	e.argv = argv[1];
 	if (argc != 2)
 		ft_print_err(argc);
 	if (check_argv(argv[1]) == 0)
@@ -48,10 +50,9 @@ int			main(int argc, char **argv)
 	min.dta = (int *)mlx_get_data_addr(min.img,
 	&min.bpp, &min.sl, &min.end);
 	display_frarg(&min, &e, argv[1]);
+	show_input();
 	mlx_put_image_to_window(min.mlx, min.win, min.img, 0, 0);
 	mlx_string_put(min.mlx, min.win, 15, 15, WHITE, argv[1]);
-	e.tl = &min;
-	e.argv = argv[1];
 	mlx_mouse_hook(min.win, &mouse_key, &e);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);
