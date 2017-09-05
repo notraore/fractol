@@ -52,7 +52,6 @@ int			main(int argc, char **argv)
 	mlx_string_put(min.mlx, min.win, 15, 15, WHITE, argv[1]);
 	e.tl = &min;
 	e.argv = argv[1];
-	printf("%s\n", e.argv);
 	mlx_mouse_hook(min.win, &mouse_key, &e);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);
