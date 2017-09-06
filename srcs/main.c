@@ -19,7 +19,17 @@ void		init_fract(t_var *e, char *argv)
 	else if (ft_strcmp("julia", argv) == 0)
 		j_first_init(e);
 	else if (ft_strcmp("nobila", argv) == 0)
-		n_first_init(e);
+		m_first_init(e);
+	else if (ft_strcmp("1", argv) == 0)
+		m_first_init(e);
+	else if (ft_strcmp("2", argv) == 0)
+		m_first_init(e);
+	else if (ft_strcmp("3", argv) == 0)
+		m_first_init(e);
+	else if (ft_strcmp("4", argv) == 0)
+		m_first_init(e);
+	else if (ft_strcmp("5", argv) == 0)
+		m_first_init(e);
 }
 
 void		display_frarg(t_var *e, char *argv)
@@ -30,6 +40,16 @@ void		display_frarg(t_var *e, char *argv)
 		ft_pthread(e, jul_ft_draw);
 	else if (ft_strcmp("nobila", argv) == 0)
 		ft_pthread(e, nob_ft_draw);
+	else if (ft_strcmp("1", argv) == 0)
+		ft_pthread(e, one_ft_draw);
+	else if (ft_strcmp("2", argv) == 0)
+		ft_pthread(e, two_ft_draw);
+	else if (ft_strcmp("3", argv) == 0)
+		ft_pthread(e, three_ft_draw);
+	else if (ft_strcmp("4", argv) == 0)
+		ft_pthread(e, four_ft_draw);
+	else if (ft_strcmp("5", argv) == 0)
+		ft_pthread(e, five_ft_draw);
 }
 
 void		display_info(t_var *e, char *argv)
@@ -51,11 +71,11 @@ void		display_info(t_var *e, char *argv)
 	to change colors.");
 	mlx_string_put(e->tl->mlx, e->tl->win, 15, 140, RED, "-Press 'i' to get \
 	the original fractal position.");
-	mlx_string_put(e->tl->mlx, e->tl->win, 15, 660, RED, "If you're using \
-	julia fractal :");
-	mlx_string_put(e->tl->mlx, e->tl->win, 15, 680, RED, "press the space bar \
+	mlx_string_put(e->tl->mlx, e->tl->win, 15, 160, RED,
+	"-Press '1''2''3''4''5''6''7''8' change displaying fractal");
+	mlx_string_put(e->tl->mlx, e->tl->win, 15, 660, RED, "press the space bar \
 	to disable/enable mouse motion.");
-	mlx_string_put(e->tl->mlx, e->tl->win, 15, 700, RED, "-Press 'r' to \
+	mlx_string_put(e->tl->mlx, e->tl->win, 15, 680, RED, "-Press 'r' to \
 	reset fractal zoom");
 	mlx_string_put(e->tl->mlx, e->tl->win, 300, 780, RED, "-Press 'h' to\
 	hide this text");
@@ -79,7 +99,6 @@ int			main(int argc, char **argv)
 	&min.bpp, &min.sl, &min.end);
 	init_fract(&e, argv[1]);
 	display_frarg(&e, argv[1]);
-	show_input();
 	mlx_mouse_hook(min.win, &mouse_key, &e);
 	mlx_hook(min.win, 2, (1L << 0), &pressed_key, &e);
 	mlx_hook(min.win, 6, (6L << 0), &mouse_position, &e);

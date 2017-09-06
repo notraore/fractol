@@ -21,14 +21,14 @@ void		*man_ft_draw(void *e)
 
 void		*jul_ft_draw(void *e)
 {
-	j_draw_var_init(e);
+	m_draw_var_init(e);
 	jul_calc(e);
 	return ((void *)(1));
 }
 
 void		*nob_ft_draw(void *e)
 {
-	n_draw_var_init(e);
+	m_draw_var_init(e);
 	nob_calc(e);
 	return ((void *)(1));
 }

@@ -6,7 +6,7 @@
 /*   By: notraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 20:42:23 by notraore          #+#    #+#             */
-/*   Updated: 2017/07/08 20:42:26 by notraore         ###   ########.fr       */
+/*   Updated: 2017/09/06 15:44:47 by notraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define BLACK 0x000000
 # define MAUVE 0xFF00FF
 # define RO 0xFFC0CB
+# define HL 0xEE4848
+# define MINE 0x13879C
 
 typedef struct s_var	t_var;
 typedef struct s_mlx	t_mlx;
@@ -48,6 +50,7 @@ struct					s_var
 	double				mouse_x;
 	double				mouse_y;
 	double				tmp;
+	double				tmp2;
 	double				x1;
 	double				x2;
 	double				y1;
@@ -121,7 +124,7 @@ void					*nob_ft_draw(void *e);
 /*
 **multithread.c
 */
-void    				ft_pthread(t_var *data, void *(*f)(void *param));
+void					ft_pthread(t_var *data, void *(*f)(void *param));
 
 /*
 **mouse_reset.c
@@ -141,7 +144,25 @@ void					nob_calc(t_var *e);
 /*
 **main.c
 */
-void		display_info(t_var *e, char *argv);
+void					display_info(t_var *e, char *argv);
 
+/*
+**bonus_1.c
+*/
+
+void					one_calc(t_var *e);
+void					two_calc(t_var *e);
+void					three_calc(t_var *e);
+void					four_calc(t_var *e);
+void					five_calc(t_var *e);
+/*
+**bonus_2.c
+*/
+
+void					*one_ft_draw(void *e);
+void					*two_ft_draw(void *e);
+void					*three_ft_draw(void *e);
+void					*four_ft_draw(void *e);
+void					*five_ft_draw(void *e);
 
 #endif

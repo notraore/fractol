@@ -79,12 +79,12 @@ void		nob_calc(t_var *e)
 			{
 				e->tmp = e->z_r;
 				e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
-				e->z_i = 1.5 * e->z_i * e->tmp + e->c_i;
+				e->z_i = fabs(e->tmp) * e->z_i * -2.0 + e->c_i;
 				e->i = e->i + 1;
 			}
 			if ((e->i == e->mi) && (e->x > 0 && e->x < W) &&
 			(e->y > 0 && e->y < H))
-				e->tl->dta[e->x + e->y * H] = BLACK;
+				e->tl->dta[e->x + e->y * H] = MINE;
 			else if ((e->x > 0 && e->x < W) && (e->y > 0 && e->y < H))
 				e->tl->dta[e->x + e->y * H] = e->i * B / (e->clr + e->mi) + 1;
 			e->y += 1;

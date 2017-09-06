@@ -19,7 +19,11 @@ void	ft_help(void)
 	ft_putendl("-> \"julia\"");
 	ft_putendl("-> \"mandelbrot\"");
 	ft_putendl("-> \"nobila\"");
-	ft_putendl("-> Press \"all\" to display all available fractals.");
+	ft_putendl("-> \"1\"");
+	ft_putendl("-> \"2\"");
+	ft_putendl("-> \"3\"");
+	ft_putendl("-> \"4\"");
+	ft_putendl("-> \"5\"");
 	exit(EXIT_FAILURE);
 }
 
@@ -40,6 +44,16 @@ int		check_argv(char *argv)
 		return (1);
 	else if (ft_strcmp("nobila", argv) == 0)
 		return (1);
+	else if (ft_strcmp("1", argv) == 0)
+		return (1);
+	else if (ft_strcmp("2", argv) == 0)
+		return (1);
+	else if (ft_strcmp("3", argv) == 0)
+		return (1);
+	else if (ft_strcmp("4", argv) == 0)
+		return (1);
+	else if (ft_strcmp("5", argv) == 0)
+		return (1);
 	ft_putendl("\t\t\tBad typography or unknown fractal.");
 	return (0);
 }
@@ -52,7 +66,8 @@ void	show_input(void)
 	ft_putendl("-Press 'w' to increase iteration and 's' to decrease.");
 	ft_putendl("-Press 't' or 'g' to change colors.");
 	ft_putendl("-Press 'r' to reset fractal position");
-	ft_putstr("\tIf you're using julia fractal, press the space bar to ");
+	ft_putstr("\t-Press the space bar to ");
 	ft_putendl("disable/enable mouse motion.");
 	ft_putendl("-Press 'esc' to exit the program.");
+	ft_putendl("-Press '1''2''3''4''5''6''7''8' change displaying fractal");
 }
