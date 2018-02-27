@@ -52,7 +52,7 @@ void		two_calc(t_var *e)
 			{
 				e->tmp = e->z_r;
 				e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
-				e->z_i = fabs(e->tmp * e->z_i) * -2.0 + e->c_i;
+				e->z_i = fabs(e->tmp * e->z_i) * 2.0 + e->c_i;
 				e->i = e->i + 1;
 			}
 			if ((e->i == e->mi) && (e->x > 0 && e->x < W) &&

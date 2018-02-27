@@ -21,7 +21,7 @@ void	ft_pthread(t_var *data, void *(*f)(void *param))
 	i = 0;
 	while (i < 8)
 	{
-		ft_memcpy((void*)&tab[i], (void*)data, sizeof(t_var));
+		tab[i] = *data;
 		tab[i].start = 100 * i;
 		tab[i].end = 100 * (i + 1);
 		i++;
