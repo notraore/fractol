@@ -1,7 +1,7 @@
 # fractol
 42 - Second Graphic Project called Fractol
 
-Usage : `make`
+Usage : `make` <br />
 `./fractol 1`
 
 <h2>Command : </h2>
